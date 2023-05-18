@@ -8,4 +8,12 @@ def calculate_daily_return(
 
 
 class TestCalculateDailyReturn(unittest.TestCase):
-    pass
+    def test_positive_return(self):
+        self.assertAlmostEqual(calculate_daily_return(349.0, 360.0), 3.15, delta=0.5)
+
+    def test_negative_return(self):
+        self.assertAlmostEqual(calculate_daily_return(349.0, 340.0), -2.58, delta=0.5)
+
+    def test_zero_return(self):
+        self.assertAlmostEqual(calculate_daily_return(349.0, 349.0), 0.0, delta=0.5)
+
